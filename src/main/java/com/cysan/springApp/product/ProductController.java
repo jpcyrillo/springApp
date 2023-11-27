@@ -1,6 +1,6 @@
 package com.cysan.springApp.product;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,30 +8,33 @@ import java.util.List;
 
 @RestController
 @RequestMapping("product")
-@RequiredArgsConstructor
 public class ProductController {
-
+    @Autowired
     private final ProductService productService;
 
-    @GetMapping
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping("listAll")
     @PreAuthorize("hasRole('PRODUCT_SELECT')")
     public List<Product> listAll(){
         return productService.listAll();
     }
 
-    @PostMapping
+    @PostMapping("create")
     @PreAuthorize("hasRole('PRODUCT_CREATE')")
     public Product create(@RequestBody Product product){
         return productService.create(product);
     }
 
-    @PutMapping
+    @PutMapping("update")
     @PreAuthorize("hasRole('PRODUCT_UPDATE')")
     public Product update(@RequestBody Product product){
         return productService.update(product);
     }
 
-    @DeleteMapping
+    @DeleteMapping("delete")
     @PreAuthorize("hasRole('PRODUCT_DELETE')")
     public void delete(@RequestParam("id") Long id){
         productService.delete(id);
