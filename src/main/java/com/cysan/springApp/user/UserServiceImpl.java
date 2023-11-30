@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService{
     public User login(User user) {
         User existUser = userRepository.findByUsername(user.getUsername());
         if(existUser==null) {
+            System.out.println("Usuario nao existe!");
             throw new NullPointerException("Usuário não existe!");
         }
 

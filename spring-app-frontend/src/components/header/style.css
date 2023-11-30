@@ -1,0 +1,10 @@
+header {
+    background-color: #20232a;
+    color: #61dafb;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin-bottom: 50px;
+}
+
