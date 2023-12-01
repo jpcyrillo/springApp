@@ -13,7 +13,7 @@ export default function HomePage() {
         <div className='container'>
             <main>
                 <div>
-                    <h2>Bem vindo ao meu site!</h2>
+                    <h2>Bem vindo!</h2>
                     <br></br>
                     <button className='btn btn-primary btn-block' onClick={handleButtonClick}>Login</button>
                 </div>
