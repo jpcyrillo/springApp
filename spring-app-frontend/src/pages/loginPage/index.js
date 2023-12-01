@@ -82,7 +82,7 @@ export default function LoginPage() {
           <button type='submit' className='btn btn-primary'>Login</button>
           <br></br>
           <br></br>
-          Não possui uma conta? <Link to="/register">Cadastrar</Link>
+          Não possui uma conta? <Link to="/userRegister">Cadastrar</Link>
         </form>
       </main>
     </div>

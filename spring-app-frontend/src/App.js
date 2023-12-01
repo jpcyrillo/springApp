@@ -4,8 +4,9 @@ import Header from './components/header/';
 import Footer from './components/footer/';
 import LoginPage from './pages/loginPage/';
 import HomePage from './pages/homePage/';
-import HomePageLogged from './pages/homePageLogged/';
-import RegisterPage from './pages/registerPage/';
+import LoggedHomePage from './pages/loggedHomePage/';
+import UserRegisterPage from './pages/userRegisterPage/';
+import ProductRegisterPage from './pages/productRegisterPage/';
 
 export default function App () {
     return (
@@ -14,8 +15,9 @@ export default function App () {
           <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/login" element={<LoginPage/>} />
-            <Route path="/home" element={<HomePageLogged/>} />
-            <Route path="/register" element={<RegisterPage/>} />
+            <Route path="/home" element={<LoggedHomePage/>} />
+            <Route path="/userRegister" element={<UserRegisterPage/>} />
+            <Route path="/productRegister" element={<ProductRegisterPage/>} />
           </Routes>
           <Footer/>
         </Router>

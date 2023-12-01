@@ -1,6 +1,8 @@
 package com.cysan.springApp.product;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,11 +20,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product create(Product product) {
+    public ResponseEntity<?> create(Product product) {
+        int i = 0;
         if (product.getId() != null) {
             throw new RuntimeException("To create a record, you cannot have an ID");
         }
-        return productRepository.save(product);
+
+        Optional<Product> existProduct = productRepository.findByName(product.getName());
+
+        if(existProduct.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Este produto já foi cadastrado.");
+        }
+        productRepository.save(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Produto cadastrado com sucesso!");
     }
 
     @Override
