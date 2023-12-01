@@ -17,25 +17,25 @@ public class ProductController {
     }
 
     @GetMapping("listAll")
-    @PreAuthorize("hasRole('PRODUCT_SELECT')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public List<Product> listAll(){
         return productService.listAll();
     }
 
     @PostMapping("create")
-    @PreAuthorize("hasRole('PRODUCT_CREATE')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product create(@RequestBody Product product){
         return productService.create(product);
     }
 
     @PutMapping("update")
-    @PreAuthorize("hasRole('PRODUCT_UPDATE')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product update(@RequestBody Product product){
         return productService.update(product);
     }
 
     @DeleteMapping("delete")
-    @PreAuthorize("hasRole('PRODUCT_DELETE')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void delete(@RequestParam("id") Long id){
         productService.delete(id);
     }

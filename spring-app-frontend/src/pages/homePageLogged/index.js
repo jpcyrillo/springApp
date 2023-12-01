@@ -6,16 +6,14 @@ export default function HomePage() {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        navigate('/login');
+        navigate('/');
     };
 
     return (
         <div className='container'>
             <main>
                 <div>
-                    <h2>Bem vindo ao meu site!</h2>
-                    <br></br>
-                    <button className='btn btn-primary btn-block' onClick={handleButtonClick}>Login</button>
+                    <button onClick={handleButtonClick}>Sair</button>
                 </div>
             </main>
         </div>
