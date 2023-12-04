@@ -1,4 +1,3 @@
-// Importe a folha de estilos CSS
 import './style.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -52,7 +51,7 @@ export default function LoggedHomePage() {
         const confirmDelete = window.confirm('Tem certeza de que deseja excluir este produto?');
 
         if (!confirmDelete) {
-            return; // Cancela a exclusão se o usuário clicar em "Cancelar"
+            return;
         }
 
         try {
@@ -68,13 +67,9 @@ export default function LoggedHomePage() {
                 throw new Error(`Erro ao excluir o produto: Status ${response.status}, ${errorText}`);
             }
 
-            // Atualiza a lista de produtos após a exclusão
             const updatedProducts = products.filter((product) => product.id !== productId);
             setProducts(updatedProducts);
             setError(null);
-
-            // Exibe a mensagem de confirmação após a exclusão bem-sucedida
-            //alert('Produto excluído com sucesso!');
         } catch (error) {
             console.error('Erro ao excluir o produto', error);
             setError(error.message);
