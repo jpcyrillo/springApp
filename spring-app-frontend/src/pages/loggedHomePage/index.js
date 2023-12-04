@@ -12,6 +12,10 @@ export default function LoggedHomePage() {
         navigate('/productRegister');
     };
 
+    const handleUpdateClick = (productId) => {
+        navigate(`/productUpdate/${productId}`);
+    };
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -89,6 +93,9 @@ export default function LoggedHomePage() {
                                 {products.map((product) => (
                                     <li key={product.id} style={{ backgroundColor: product.color }}>
                                         <span>{product.name}</span>
+                                        <button className='btn btn-update' onClick={() => handleUpdateClick(product.id)} >
+                                            Atualizar
+                                        </button>
                                         <button className='btn btn-delete' onClick={() => handleDeleteClick(product.id)}>
                                             Deletar
                                         </button>

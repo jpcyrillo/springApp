@@ -16,13 +16,17 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> listAll() {
-        System.out.println(productRepository.findAll());
         return productRepository.findAll();
     }
 
     @Override
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
+    }
+
+
+    @Override
     public ResponseEntity<?> create(Product product) {
-        int i = 0;
         if (product.getId() != null) {
             throw new RuntimeException("To create a record, you cannot have an ID");
         }
@@ -37,11 +41,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product update(Product product) {
+    public ResponseEntity<?> update(Product product) {
         if (product.getId() == null) {
             throw new RuntimeException("To update a record, you must have an ID");
         }
-        return productRepository.save(product);
+        productRepository.save(product);
+        return ResponseEntity.status(HttpStatus.OK).body("Produto atualizado com sucesso!");
     }
 
     @Override

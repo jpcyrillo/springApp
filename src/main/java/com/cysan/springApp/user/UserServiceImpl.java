@@ -1,5 +1,6 @@
 package com.cysan.springApp.user;
 
+import com.cysan.springApp.product.Product;
 import com.cysan.springApp.role.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,11 @@ public class UserServiceImpl implements UserService{
 
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    public List<User> listAll() {
+        return userRepository.findAll();
     }
     @Override
     public ResponseEntity<?> create(User user) {

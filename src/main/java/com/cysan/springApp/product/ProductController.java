@@ -1,10 +1,12 @@
 package com.cysan.springApp.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("product")
@@ -21,13 +23,18 @@ public class ProductController {
         return productService.listAll();
     }
 
+    @GetMapping("find")
+    public Optional<Product> findById(@RequestParam("id") Long id) {
+        return productService.findById(id);
+    }
+
     @PostMapping("create")
     public ResponseEntity<?> create(@RequestBody Product product){
         return productService.create(product);
     }
 
     @PutMapping("update")
-    public Product update(@RequestBody Product product){
+    public ResponseEntity<?> update(@RequestBody Product product){
         return productService.update(product);
     }
 

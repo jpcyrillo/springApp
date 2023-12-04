@@ -7,6 +7,7 @@ import HomePage from './pages/homePage/';
 import LoggedHomePage from './pages/loggedHomePage/';
 import UserRegisterPage from './pages/userRegisterPage/';
 import ProductRegisterPage from './pages/productRegisterPage/';
+import ProductUpdatePage from './pages/productUpdatePage/';
 
 export default function App () {
     return (
@@ -18,6 +19,7 @@ export default function App () {
             <Route path="/home" element={<LoggedHomePage/>} />
             <Route path="/userRegister" element={<UserRegisterPage/>} />
             <Route path="/productRegister" element={<ProductRegisterPage/>} />
+            <Route path="/productUpdate/:id" element={<ProductUpdatePage />} />
           </Routes>
           <Footer/>
         </Router>
