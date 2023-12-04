@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
     }
     @Override
     public ResponseEntity<?> create(User user) {
-        Optional<User>  existUser = userRepository.findByUsername(user.getUsername());
+        Optional<User> existUser = userRepository.findByUsername(user.getUsername());
 
         if (existUser.isPresent()) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Nome de usuário indisponível.");

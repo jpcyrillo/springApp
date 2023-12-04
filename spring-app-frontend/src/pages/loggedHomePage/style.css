@@ -14,3 +14,34 @@ main {
 button {
     width: 10%;
 }
+
+.product-list-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+}
+
+.product-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.product-list li span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.btn-delete {
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
